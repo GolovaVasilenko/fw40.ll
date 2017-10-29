@@ -1,0 +1,11 @@
+{
+    "name": "alexey/fw40.ll",
+    "description": "my first framwork",
+    "authors": [
+        {
+            "name": "GolovaVasilenko",
+            "email": "vasilenko75@gmail.com"
+        }
+    ],
+    "require": {}
+}
