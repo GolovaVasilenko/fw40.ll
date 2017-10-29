@@ -2,4 +2,5 @@
 session_start();
 ini_set('display_errors', 1);
 
-echo "It work";
+require_once "engine/bootstrap.php";
+
