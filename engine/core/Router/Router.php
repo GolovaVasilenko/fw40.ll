@@ -34,11 +34,20 @@ class Router
 		];
 	}
 
+	/**
+	 * @param $method
+	 * @param $uri
+	 *
+	 * @return DispatchetRoute
+	 */
 	public function dispatch($method, $uri)
 	{
-		return $this->getDispatcher();
+		return $this->getDispatcher()->dispatch($method, $uri);
 	}
 
+	/**
+	 * @return UrlDispatcher|null
+	 */
 	public function getDispatcher()
 	{
 		if($this->dispatcher === null){

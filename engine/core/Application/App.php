@@ -39,6 +39,6 @@ class App
 		$this->router->add('home', '/', 'PageController@index');
 		$this->router->add('user', '/user/12', 'UserController@index');
 		$routerDispatcher = $this->router->dispatch(Common::getMethod(), Common::getUrl());
-		//var_dump($this->di);
+		var_dump($routerDispatcher);
 	}
 }

@@ -61,12 +61,23 @@ class UrlDispatcher
 
 			return new DispatchedRoute($routes[$uri]);
 		}
+		return $this->doDispatch($method, $uri);
 	}
 
+	/**
+	 * @param $method
+	 * @param $uri
+	 *
+	 * @return DispatchedRoute
+	 */
 	private function doDispatch($method, $uri)
 	{
 		foreach($this->getRoutes($method) as $route => $controller) {
+			$pattern = '#^' . $route . "$#s";
 
+			if(preg_match($pattern, $uri, $parameters)){
+				return new DispatchedRoute($controller, $parameters);
+			}
 		}
 	}
 
