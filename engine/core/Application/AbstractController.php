@@ -3,12 +3,22 @@
 namespace engine\core\Application;
 
 
+use engine\core\DI\DiContainer;
+
 class AbstractController
 {
-	private $di;
+	/**
+	 * @var DiContainer
+	 */
+	protected $di;
 
-	public function __construct($di)
+	/**
+	 * AbstractController constructor.
+	 *
+	 * @param DiContainer $di
+	 */
+	public function __construct(DiContainer $di)
 	{
-
+		$this->di = $di;
 	}
 }

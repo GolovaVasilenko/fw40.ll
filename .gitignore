@@ -2,5 +2,7 @@
 .idea/
 
 /vendor/
-/engine/config/
+/engine/config/db.php
 
+app/Components/
+app/Models/
