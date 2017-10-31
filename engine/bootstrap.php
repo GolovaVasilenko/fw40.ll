@@ -10,9 +10,19 @@ try{
 
 	$di = new DiContainer();
 
+	$services = require_once __DIR__ . "/config/services.php";
+
+	/**
+	 * init service provider
+	 */
+	foreach($services as $service) {
+		$provider = new $service($di);
+		$provider->init();
+	}
+
 	$app = new App($di);
 	$app->run();
 
-}catch (\ErrorException $e) {
+}catch (\engine\core\Errors\Errors $e) {
 	echo $e->getMessage();
 }

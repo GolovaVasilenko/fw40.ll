@@ -31,6 +31,6 @@ class App
 
 	public function run()
 	{
-		echo "It work super";
+		var_dump($this->di);
 	}
 }
