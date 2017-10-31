@@ -8,7 +8,7 @@
 
 namespace engine\core\Application;
 
-
+use engine\Helpers\Common;
 use engine\core\DI\DiContainer;
 
 class App
@@ -19,6 +19,10 @@ class App
 	 */
 	private $di;
 
+	private $router;
+
+	private $db;
+
 	/**
 	 * App constructor.
 	 *
@@ -27,10 +31,14 @@ class App
 	public function __construct(DiContainer $di)
 	{
 		$this->di = $di;
+		$this->router = $this->di->get('router');
 	}
 
 	public function run()
 	{
-		var_dump($this->di);
+		$this->router->add('home', '/', 'PageController@index');
+		$this->router->add('user', '/user/12', 'UserController@index');
+		$routerDispatcher = $this->router->dispatch(Common::getMethod(), Common::getUrl());
+		//var_dump($this->di);
 	}
 }
