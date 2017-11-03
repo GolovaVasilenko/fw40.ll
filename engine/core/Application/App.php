@@ -38,6 +38,14 @@ class App
 	{
 		$this->di = $di;
 		$this->router = $this->di->get('router');
+
+		$loader = new Twig_Loader_Filesystem(array(
+			'index' => 'Hello {{ name }}!',
+		));
+
+		$twig = new Twig_Environment($loader, array(
+			'cache' => '/path/to/compilation_cache',
+		));
 	}
 
 	public function run() {
