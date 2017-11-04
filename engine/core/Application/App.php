@@ -47,7 +47,7 @@ class App
 
 		list( $class, $action ) = explode( '@', $routerDispatcher->getController(), 2 );
 
-		call_user_func_array( [
+		return call_user_func_array( [
 			new $this->classes[$class]( $this->di ),
 			$action
 		], $routerDispatcher->getParameters() );

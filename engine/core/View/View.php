@@ -29,7 +29,7 @@ class View
 	 */
 	public function __construct() {
 
-		$tempPath = TEMPLATES . $this->template;
+		$tempPath = TEMPLATES . $this->template . '/';
 		if(!file_exists($tempPath))
 			throw new Errors("File ". $tempPath . " Not exists!");
 		$cachePath = CACHE . 'view';
@@ -39,7 +39,9 @@ class View
 		$loader = new Twig_Loader_Filesystem($tempPath);
 		$twig = new Twig_Environment($loader, array(
 			'cache' => $cachePath,
+			'auto_reload' => true,
 		));
+
 		$this->twig = $twig;
 	}
 

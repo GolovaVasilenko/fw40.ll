@@ -12,6 +12,8 @@ class AbstractController
 	 */
 	protected $di;
 
+	protected $view;
+
 	/**
 	 * AbstractController constructor.
 	 *
@@ -20,5 +22,7 @@ class AbstractController
 	public function __construct(DiContainer $di)
 	{
 		$this->di = $di;
+		$viewObj = $this->di->get('view');
+		$this->view = $viewObj->getView();
 	}
 }

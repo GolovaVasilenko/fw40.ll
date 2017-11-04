@@ -21,7 +21,9 @@ try{
 	}
 
 	$app = new App($di);
-	$app->run();
+	$page = $app->run();
+
+	echo $page;
 
 }catch (\engine\core\Errors\Errors $e) {
 	echo $e->getMessage();
