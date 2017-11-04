@@ -26,7 +26,7 @@ try{
 	echo $page;
 
 }catch (\engine\core\Errors\Errors $e) {
-	echo $e->getMessage();
+	echo $e->getMessage() . " file " . $e->getFile() . " line " . $e->getLine();
 }catch (\Exception $ex){
 	echo $ex->getMessage();
 }

@@ -1,6 +1,7 @@
 <?php
 namespace engine\core\DB;
 
+use engine\core\Config\Config;
 use engine\core\Errors\Errors;
 
 class Db
@@ -22,7 +23,7 @@ class Db
 	{
 		$options = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 
-		$db_config = include __DIR__ . "/../../config/db.php";
+		$db_config = Config::file('db');
 
 		try{
 			$this->dbh = new \PDO('mysql:dbname='. $db_config['dbName'] . ';host=' . $db_config['dbHost'], $db_config['dbUser'], $db_config['dbPass'], $options);
