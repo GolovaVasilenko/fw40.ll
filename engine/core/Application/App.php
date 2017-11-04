@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alexey
- * Date: 29.10.17
- * Time: 14:24
- */
 
 namespace engine\core\Application;
 
@@ -39,13 +33,6 @@ class App
 		$this->di = $di;
 		$this->router = $this->di->get('router');
 
-		$loader = new Twig_Loader_Filesystem(array(
-			'index' => 'Hello {{ name }}!',
-		));
-
-		$twig = new Twig_Environment($loader, array(
-			'cache' => '/path/to/compilation_cache',
-		));
 	}
 
 	public function run() {

@@ -25,4 +25,6 @@ try{
 
 }catch (\engine\core\Errors\Errors $e) {
 	echo $e->getMessage();
+}catch (\Exception $ex){
+	echo $ex->getMessage();
 }

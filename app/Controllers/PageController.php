@@ -10,7 +10,7 @@ class PageController extends AppController
 
 	public function index()
 	{
-		echo __CLASS__ . " - method - " . __METHOD__;
+		$this->di->get('view')->getView()->render('base.twig.html');
 	}
 
 	public function news($id)
