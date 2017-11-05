@@ -8,7 +8,8 @@ class Cookie
 
 	public function set($key, $value, $expire = (3600 * 24 * 7), $dir = '/' )
 	{
-		setcookie($key, $value, $expire, $dir);
+		setcookie($key, $value, time() + $expire, $dir);
+		$_COOKIE[$key] = $value;
 	}
 
 	public function get($key)
@@ -18,6 +19,7 @@ class Cookie
 
 	public function remove($key)
 	{
-		setcookie($key, "", time()-3600);
+		setcookie($key, "", 1, '/');
+		unset($_COOKIE[$key]);
 	}
 }

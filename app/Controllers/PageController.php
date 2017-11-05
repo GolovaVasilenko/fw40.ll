@@ -3,8 +3,6 @@
 namespace app\Controllers;
 
 
-use engine\core\DI\DiContainer;
-
 class PageController extends AppController
 {
 

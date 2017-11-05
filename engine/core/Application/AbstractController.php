@@ -2,7 +2,6 @@
 
 namespace engine\core\Application;
 
-
 use engine\core\DI\DiContainer;
 
 class AbstractController
