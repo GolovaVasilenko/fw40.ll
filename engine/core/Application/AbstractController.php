@@ -15,6 +15,8 @@ class AbstractController
 
 	protected $config;
 
+	protected $request;
+
 	/**
 	 * AbstractController constructor.
 	 *
@@ -25,6 +27,8 @@ class AbstractController
 		$this->di = $di;
 
 		$this->config = $this->di->get('config');
+
+		$this->request = $this->di->get('request');
 
 		$viewObj = $this->di->get('view');
 		$this->view = $viewObj->getView();

@@ -4,4 +4,5 @@ return [
 	engine\services\Config\Provider::class,
 	engine\services\Router\Provider::class,
 	engine\services\View\Provider::class,
+	engine\services\Request\Provider::class,
 ];

@@ -10,7 +10,9 @@ class __TwigTemplate_7b6ccf3ffdbb533ca30516dd3acfab0447b1bd956049c5ad8a1bdf42a28
         $this->parent = false;
 
         $this->blocks = array(
+            'header' => array($this, 'block_header'),
             'content' => array($this, 'block_content'),
+            'footer' => array($this, 'block_footer'),
         );
     }
 
@@ -18,7 +20,7 @@ class __TwigTemplate_7b6ccf3ffdbb533ca30516dd3acfab0447b1bd956049c5ad8a1bdf42a28
     {
         // line 1
         echo "<!doctype html>
-<html lang=\"en\">
+<html lang=\"ru\">
 <head>
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\"
@@ -28,23 +30,62 @@ class __TwigTemplate_7b6ccf3ffdbb533ca30516dd3acfab0447b1bd956049c5ad8a1bdf42a28
         // line 8
         echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
         echo "</title>
+    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\">
 </head>
 <body>
-";
-        // line 11
+<div class=\"block-wrapper\">
+    <header>
+        ";
+        // line 14
+        $this->displayBlock('header', $context, $blocks);
+        // line 17
+        echo "    </header>
+    <main>
+        ";
+        // line 19
         $this->displayBlock('content', $context, $blocks);
-        // line 15
-        echo "</body>
+        // line 22
+        echo "    </main>
+    <footer>
+        ";
+        // line 24
+        $this->displayBlock('footer', $context, $blocks);
+        // line 27
+        echo "    </footer>
+</div><!-- END WRAPPER -->
+<script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js\" integrity=\"sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh\" crossorigin=\"anonymous\"></script>
+<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js\" integrity=\"sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ\" crossorigin=\"anonymous\"></script>
+</body>
 </html>";
     }
 
-    // line 11
+    // line 14
+    public function block_header($context, array $blocks = array())
+    {
+        // line 15
+        echo "        ";
+        echo twig_include($this->env, $context, "header.twig.html");
+        echo "
+        ";
+    }
+
+    // line 19
     public function block_content($context, array $blocks = array())
     {
-        // line 12
+        // line 20
         echo "
-<h1>YRA! VSE RABOTAET</h1>
-";
+        ";
+    }
+
+    // line 24
+    public function block_footer($context, array $blocks = array())
+    {
+        // line 25
+        echo "        ";
+        echo twig_include($this->env, $context, "footer.twig.html");
+        echo "
+        ";
     }
 
     public function getTemplateName()
@@ -59,7 +100,7 @@ class __TwigTemplate_7b6ccf3ffdbb533ca30516dd3acfab0447b1bd956049c5ad8a1bdf42a28
 
     public function getDebugInfo()
     {
-        return array (  45 => 12,  42 => 11,  37 => 15,  35 => 11,  29 => 8,  20 => 1,);
+        return array (  85 => 25,  82 => 24,  77 => 20,  74 => 19,  67 => 15,  64 => 14,  54 => 27,  52 => 24,  48 => 22,  46 => 19,  42 => 17,  40 => 14,  31 => 8,  22 => 1,);
     }
 
     public function getSourceContext()
