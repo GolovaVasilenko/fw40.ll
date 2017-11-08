@@ -1,14 +1,14 @@
 <?php
 
-/* content.twig.html */
-class __TwigTemplate_2fc87f26d10032ce3433cd2a8c7c5836b02d56a060f5a4af87623245f9f37b16 extends Twig_Template
+/* auth/login.twig.html */
+class __TwigTemplate_e31717de2c2af9a290cf8849e3daae4014dd4199b9e30e276c817f5456ef360f extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("base.twig.html", "content.twig.html", 1);
+        $this->parent = $this->loadTemplate("base.twig.html", "auth/login.twig.html", 1);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
         );
@@ -29,14 +29,14 @@ class __TwigTemplate_2fc87f26d10032ce3433cd2a8c7c5836b02d56a060f5a4af87623245f9f
     {
         // line 4
         echo "<div class=\"container\">
-<p>Content page</p>
+    login
 </div>
 ";
     }
 
     public function getTemplateName()
     {
-        return "content.twig.html";
+        return "auth/login.twig.html";
     }
 
     public function isTraitable()
@@ -51,6 +51,6 @@ class __TwigTemplate_2fc87f26d10032ce3433cd2a8c7c5836b02d56a060f5a4af87623245f9f
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "content.twig.html", "/home/alexey/www/fw40.ll/templates/default/content.twig.html");
+        return new Twig_Source("", "auth/login.twig.html", "/home/alexey/www/fw40.ll/templates/default/auth/login.twig.html");
     }
 }
