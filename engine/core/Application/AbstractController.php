@@ -32,7 +32,8 @@ class AbstractController
 
 		$this->request = $this->di->get('request');
 
-		$this->db = $this->di->get('db');
+		$db = $this->di->get('db');
+		$this->db = $db::getInstanse();
 
 		$viewObj = $this->di->get('view');
 		$this->view = $viewObj->getView();
