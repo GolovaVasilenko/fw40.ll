@@ -23,8 +23,6 @@ class App
 		'DashboardController' => \app\Controllers\Admin\DashboardController::class,
 	];
 
-	private $db;
-
 	/**
 	 * App constructor.
 	 *

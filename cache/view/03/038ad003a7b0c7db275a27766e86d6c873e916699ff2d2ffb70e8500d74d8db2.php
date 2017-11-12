@@ -1,7 +1,7 @@
 <?php
 
 /* auth/login.twig.html */
-class __TwigTemplate_e31717de2c2af9a290cf8849e3daae4014dd4199b9e30e276c817f5456ef360f extends Twig_Template
+class __TwigTemplate_03e128eed7afd09153eaa5712e0fa3928e18cc2ac8b60c97d0717703439215d5 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -30,8 +30,11 @@ class __TwigTemplate_e31717de2c2af9a290cf8849e3daae4014dd4199b9e30e276c817f5456e
         // line 4
         echo "<div class=\"container\">
     <div class=\"login-form-wrapper\">
-        <?php var_dump(form) ?>
 
+        ";
+        // line 7
+        echo $this->env->getExtension('engine\core\View\TwigExtension')->formLogin();
+        echo "
 
     </div>
 </div>
@@ -50,7 +53,7 @@ class __TwigTemplate_e31717de2c2af9a290cf8849e3daae4014dd4199b9e30e276c817f5456e
 
     public function getDebugInfo()
     {
-        return array (  31 => 4,  28 => 3,  11 => 1,);
+        return array (  36 => 7,  31 => 4,  28 => 3,  11 => 1,);
     }
 
     public function getSourceContext()

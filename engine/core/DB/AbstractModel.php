@@ -5,32 +5,24 @@ namespace engine\core\DB;
 
 class AbstractModel
 {
-	public static $saltPass = 'wD4y2fbx853iOfD51Esd';
-	public static $saltKey  = 'rG7yr3kj624isVq51Ht5';
-
+	/**
+	 * @var const Table Name
+	 */
 	const TABLE = '';
 
 	/**
-	 * @param $pass
-	 * @param $saltPass
-	 *
-	 * @return string
+	 * @var null
 	 */
-	public static function cashPassword($pass, $saltPass)
-	{
-		return md5($pass . $saltPass);
-	}
+	protected $db = null;
 
 	/**
-	 * @param $cdate
-	 * @param $login
-	 * @param $saltKey
+	 * AbstractModel constructor.
 	 *
-	 * @return string
+	 * @param $db
 	 */
-	public static function cashSecretKey($cdate, $login, $saltKey)
+	public function __construct($db)
 	{
-		return md5($cdate . $saltKey . $login);
+		$this->db = $db;
 	}
 
 	/**

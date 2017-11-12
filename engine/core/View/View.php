@@ -2,9 +2,11 @@
 
 namespace engine\core\View;
 
+
 use Twig_Loader_Filesystem;
 use Twig_Environment;
 use engine\core\Errors\Errors;
+
 
 class View
 {
@@ -42,6 +44,7 @@ class View
 			'auto_reload' => true,
 		));
 
+		$twig->addExtension(new TwigExtension());
 		$this->twig = $twig;
 	}
 

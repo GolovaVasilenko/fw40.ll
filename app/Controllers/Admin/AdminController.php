@@ -3,11 +3,12 @@
 
 namespace app\Controllers\Admin;
 
-use engine\core\Application\AbstractController;
+
+use app\Controllers\AppController;
 use engine\core\Auth\Auth;
 use engine\core\DI\DiContainer;
 
-class AdminController extends AbstractController
+class AdminController extends AppController
 {
 
 	/**
@@ -30,7 +31,9 @@ class AdminController extends AbstractController
 	public function checkAuthorization()
 	{
 		if(!$this->auth->authorized()) {
-			// TODO: redirect Login
+
+			header("Location: /login");
+			exit;
 		}
 	}
 }

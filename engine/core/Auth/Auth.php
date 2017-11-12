@@ -30,8 +30,8 @@ class Auth implements AuthInterface
 	 */
 	public function authorize($user)
 	{
-		Session::set('auth.authorized', true);
-		Session::set('auth.user', $user);
+		Session::set('auth_authorized', true);
+		Session::set('auth_user', $user);
 
 		$this->user       = $user;
 		$this->authorized = true;
@@ -46,12 +46,24 @@ class Auth implements AuthInterface
 	}
 
 	/**
+	 * @param $id
+	 * @param $email
+	 * @param $salt
+	 *
+	 * @return string
+	 */
+	public function createHash($id, $email, $salt)
+	{
+		return md5($id . $email . $salt);
+	}
+
+	/**
 	 * @return void
 	 */
 	public function unAuthorize()
 	{
-		Session::remove('auth.authorized');
-		Session::remove('auth.user');
+		Session::remove('auth_authorized');
+		Session::remove('auth_user');
 
 		$this->authorized = false;
 		$this->user       = null;

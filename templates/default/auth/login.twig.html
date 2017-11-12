@@ -3,7 +3,9 @@
 {% block content %}
 <div class="container">
     <div class="login-form-wrapper">
-        {% \engine\Helpers\Form::sta %}
+
+        {{ formLogin()|raw }}
+
     </div>
 </div>
 {% endblock %}
