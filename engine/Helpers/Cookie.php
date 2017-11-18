@@ -6,18 +6,18 @@ namespace engine\Helpers;
 class Cookie
 {
 
-	public function set($key, $value, $expire = (3600 * 24 * 7), $dir = '/' )
+	public static function set($key, $value, $expire = (3600 * 24 * 7), $dir = '/' )
 	{
 		setcookie($key, $value, time() + $expire, $dir);
 		$_COOKIE[$key] = $value;
 	}
 
-	public function get($key)
+	public static function get($key)
 	{
 		return isset($_COOKIE[$key]) ? htmlspecialchars($_COOKIE[$key]) : null;
 	}
 
-	public function remove($key)
+	public static function remove($key)
 	{
 		setcookie($key, "", 1, '/');
 		unset($_COOKIE[$key]);

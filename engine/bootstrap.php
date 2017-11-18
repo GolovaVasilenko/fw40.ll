@@ -21,6 +21,7 @@ try{
 	}
 
 	$app = new App($di);
+
 	$page = $app->run();
 
 	echo $page;

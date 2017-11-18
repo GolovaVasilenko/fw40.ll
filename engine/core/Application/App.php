@@ -2,6 +2,7 @@
 
 namespace engine\core\Application;
 
+use engine\core\Config\Config;
 use engine\Helpers\Common;
 use engine\core\DI\DiContainer;
 use engine\core\Router\DispatchedRoute;
@@ -15,13 +16,6 @@ class App
 	private $di;
 
 	private $router;
-
-	private $classes = [
-		'PageController' => \app\Controllers\PageController::class,
-		'ErrorController' => \app\Controllers\ErrorController::class,
-		'LoginController' => \app\Controllers\Admin\LoginController::class,
-		'DashboardController' => \app\Controllers\Admin\DashboardController::class,
-	];
 
 	/**
 	 * App constructor.
@@ -47,8 +41,10 @@ class App
 
 		list( $class, $action ) = explode( '@', $routerDispatcher->getController(), 2 );
 
+		$controller = Config::item($class, 'controllers');
+
 		return call_user_func_array( [
-			new $this->classes[$class]( $this->di ),
+			new $controller( $this->di ),
 			$action
 		], $routerDispatcher->getParameters() );
 

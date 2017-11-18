@@ -65,7 +65,8 @@ class Db
 		$sth = $this->dbh->prepare($sql);
 		$res = $sth->execute($params);
 		if(false !== $res){
-			return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
+			$ret = $sth->fetchAll(\PDO::FETCH_CLASS, $class);
+			return $ret;
 		}
 		return [];
 	}

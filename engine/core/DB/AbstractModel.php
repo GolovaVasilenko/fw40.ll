@@ -11,18 +11,17 @@ class AbstractModel
 	const TABLE = '';
 
 	/**
-	 * @var null
+	 * @var Db
 	 */
-	protected $db = null;
+	protected static $db;
 
 	/**
 	 * AbstractModel constructor.
 	 *
-	 * @param $db
 	 */
-	public function __construct($db)
+	public function __construct()
 	{
-		$this->db = $db;
+		static::$db = Db::getInstance();
 	}
 
 	/**

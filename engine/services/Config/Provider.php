@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alexey
- * Date: 04.11.17
- * Time: 15:09
- */
+
 
 namespace engine\services\Config;
 

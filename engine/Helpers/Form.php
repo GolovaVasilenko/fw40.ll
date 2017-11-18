@@ -6,41 +6,64 @@ namespace engine\Helpers;
 
 class Form
 {
-	public static function startForm($action = '', $method = 'POST', $attr = [], $enctype = false)
+
+	/**
+	 * @param array $attr
+	 *
+	 * @return string
+	 */
+	public static function open($attr = [])
 	{
-		$form = '';
-		$form .= '<form ';
-		$form .= self::arrToStrAttr($attr);
-		$form .= 'action="' . $action . '" ';
-		$form .= 'method="' . $method . '" ';
-		if($enctype){
-			$form .= 'enctype="multipart/form-data" ';
+		return $form = '<form '. self::arr2Html($attr) . ' >';
+	}
+
+	/**
+	 * @param array $attr
+	 *
+	 * @return string
+	 */
+	public static function input($attr = [])
+	{
+		if(isset($attr['value'])) {
+			$attr['value'] = htmlspecialchars($attr['value']);
 		}
-		return $form . '>';
+		return '<input ' . self::arr2Html($attr) . ' />';
 	}
 
-	public static function input($name, $type, $value = '', $attr = [])
+	public static function textarea($str = '', $attr = [])
 	{
-		$input = '<input ';
-		$input .= self::arrToStrAttr($attr);
-		$input .= 'name="' . $name . '" ';
-		$input .= 'type="' . $type . '" ';
-		$input .= 'value="' . $value . '" ';
-		$input .= '/>';
-		return $input;
+		return '<textarea ' . self::arr2Html($attr) . '>' . htmlspecialchars($str) . '</textarea>';
 	}
 
+	/**
+	 * @param $str
+	 * @param array $attr
+	 *
+	 * @return string
+	 */
+	public static function label($str, $attr = [])
+	{
+		return '<label ' . self::arr2Html($attr) . '>' . $str . '</label>';
+	}
 
-	public static function endForm()
+	/**
+	 * @return string
+	 */
+	public static function close()
 	{
 		return '</form>';
 	}
 
-	public static function arrToStrAttr($attr)
+	/**
+	 * @param $attr
+	 *
+	 * @return string
+	 */
+	public static function arr2Html($attr)
 	{
 		$str = '';
 		foreach($attr as $key => $value){
-			$str .= $key . '="' . $value . '" ';
+			$str .= $key . '="' . htmlspecialchars($value) . '" ';
 		}
 		return $str;
 	}

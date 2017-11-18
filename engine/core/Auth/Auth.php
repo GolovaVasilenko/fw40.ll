@@ -72,7 +72,7 @@ class Auth implements AuthInterface
 	/**
 	 * @return string
 	 */
-	public function salt()
+	public static function salt()
 	{
 		return (string) rand(10000000, 99999999);
 	}
