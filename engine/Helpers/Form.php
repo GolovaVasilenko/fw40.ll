@@ -30,9 +30,32 @@ class Form
 		return '<input ' . self::arr2Html($attr) . ' />';
 	}
 
+	/**
+	 * @param string $str
+	 * @param array $attr
+	 *
+	 * @return string
+	 */
 	public static function textarea($str = '', $attr = [])
 	{
 		return '<textarea ' . self::arr2Html($attr) . '>' . htmlspecialchars($str) . '</textarea>';
+	}
+
+	/**
+	 * @param array $attr
+	 * @param array $options
+	 *
+	 * @return string
+	 */
+	public static function select($attr = [], $options = [])
+	{
+		$select = '';
+		$select .= '<select ' . self::arr2Html($attr) . '>';
+		foreach($options as $key => $value){
+		      $select .= '<option value="' . $key . '">' . $value . '</option>';
+		}
+		$select .= '</select>';
+		return $select;
 	}
 
 	/**

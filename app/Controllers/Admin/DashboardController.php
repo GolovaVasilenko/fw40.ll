@@ -8,6 +8,6 @@ class DashboardController extends AdminController
 {
 	public function index()
 	{
-		return "dashboard";
+		return $this->view->render('/admin/index.twig.html');
 	}
 }
