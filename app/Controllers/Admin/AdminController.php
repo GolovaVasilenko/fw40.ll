@@ -5,10 +5,10 @@ namespace app\Controllers\Admin;
 
 
 use app\Controllers\AppController;
-use engine\core\Auth\Auth;
 use engine\core\DI\DiContainer;
 use engine\Helpers\Common;
 use engine\Helpers\Session;
+use engine\Helpers\Cookie;
 
 class AdminController extends AppController
 {
@@ -30,6 +30,9 @@ class AdminController extends AppController
 
 	public function checkAuthorization()
 	{
+		if(Cookie::get('user')) {
+			return;
+		}
 
 		if(!Session::get('auth_authorized')) {
 			return Common::redirect('/login');
