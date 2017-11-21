@@ -5,6 +5,7 @@ namespace app\Controllers\Admin;
 
 
 use app\Controllers\AppController;
+use engine\core\Auth\Auth;
 use engine\core\DI\DiContainer;
 use engine\Helpers\Common;
 use engine\Helpers\Session;
@@ -25,15 +26,20 @@ class AdminController extends AppController
 	public function __construct( DiContainer $di ) {
 		parent::__construct( $di );
 
+		$this->auth = Auth::getInstance();
+
 		$this->checkAuthorization();
 	}
 
+	/**
+	 * @return bool|void
+	 */
 	public function checkAuthorization()
 	{
-		if(Cookie::get('user')) {
-			return;
+		if(!empty(Cookie::get('user'))) {
+			$login = new LoginController($this->di);
+			return $login->authByCookie('user');
 		}
-
 		if(!Session::get('auth_authorized')) {
 			return Common::redirect('/login');
 		}

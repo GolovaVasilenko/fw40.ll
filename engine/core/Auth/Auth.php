@@ -3,7 +3,6 @@
 namespace engine\core\Auth;
 
 use engine\Helpers\Session;
-use engine\Helpers\Cookie;
 
 
 class Auth implements AuthInterface
@@ -11,18 +10,39 @@ class Auth implements AuthInterface
 	/**
 	 * @var bool
 	 */
-	protected $authorized = false;
+	protected static $authorized = false;
+
+	protected static $instance = null;
 	/**
 	 * @var object
 	 */
 	protected $user;
 
 	/**
+	 * Auth constructor.
+	 */
+	private function __construct() {}
+
+	/**
+	 * close function clone
+	 */
+	private function __clone(){}
+
+	public static function getInstance()
+	{
+		if(self::$instance){
+			return self::$instance;
+		}
+		else {
+			return new self;
+		}
+	}
+	/**
 	 * @return bool
 	 */
 	public function authorized()
 	{
-		return $this->authorized;
+		return self::$authorized;
 	}
 
 	/**
@@ -34,7 +54,7 @@ class Auth implements AuthInterface
 		Session::set('auth_user', $user);
 
 		$this->user       = $user;
-		$this->authorized = true;
+		self::$authorized = true;
 	}
 
 	/**
@@ -65,7 +85,7 @@ class Auth implements AuthInterface
 		Session::remove('auth_authorized');
 		Session::remove('auth_user');
 
-		$this->authorized = false;
+		self::$authorized = false;
 		$this->user       = null;
 	}
 

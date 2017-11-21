@@ -6,7 +6,7 @@ namespace engine\core\View;
 
 use app\Controllers\Admin\Forms\LoginForms;
 use engine\core\Config\Config;
-
+use engine\Helpers\Session;
 
 
 class TwigExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface {
@@ -24,7 +24,7 @@ class TwigExtension extends \Twig_Extension implements \Twig_Extension_GlobalsIn
 	{
 		return [
 			new \Twig_Function( 'formLogin', [ $this, 'formLogin' ] ),
-
+			new \Twig_Function( 'flash', [ $this, 'flash' ] ),
 		];
 	}
 
@@ -34,6 +34,11 @@ class TwigExtension extends \Twig_Extension implements \Twig_Extension_GlobalsIn
 	public function formLogin()
 	{
 		return LoginForms::renderLoginForm();
+	}
+
+	public function flash($key)
+	{
+		return Session::flash($key);
 	}
 
 	/**

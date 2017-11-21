@@ -33,4 +33,18 @@ class Session
 			unset($_SESSION[$key]);
 	}
 
+	public static function flash($key)
+	{
+		if(!empty($_SESSION[$key])){
+			if(is_array($_SESSION[$key])){
+				foreach($_SESSION[$key] as $item){
+					return '<p>' . $item . '</p>';
+				}
+			}
+
+			return '<p>' . $_SESSION[$key] . '</p>';
+		}
+
+	}
+
 }
